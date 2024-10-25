@@ -1,0 +1,17 @@
+# Ignore credentials file
+vault.pass
+
+# Ignore any file with .log extension
+*.log
+
+# Ignore temporary Ansible files and folders
+*.retry
+tmp/
+
+#playbook
+roles.yml
+
+#roles
+apache
+nginx
+

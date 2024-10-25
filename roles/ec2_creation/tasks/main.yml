@@ -1,0 +1,19 @@
+---
+# tasks file for ec2_creation
+  - name: Create EC2 instances on AWS platform
+    amazon.aws.ec2_instance:
+      name: "{{ item.name }}"
+      instance_type: "{{ instance_type }}"
+      key_name: "{{ key_name }}"
+      security_group: default
+      region: "{{ region }}"
+      network_interfaces:
+        - assign_public_ip: true
+      image_id: "{{ item.image_id }}"
+      aws_access_key: "{{ aws_access_key }}"
+      aws_secret_access_key: "{{ aws_secret_key }}"
+      wait: yes
+    loop:
+      - { name: "AmazonLinux1", image_id: "ami-06b21ccaeff8cd686" }
+      - { name: "Ubuntu_1", image_id: "ami-0866a3c8686eaeeba" }
+      - { name: "Ubuntu_2", image_id: "ami-0866a3c8686eaeeba" }

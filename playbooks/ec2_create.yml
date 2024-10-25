@@ -1,0 +1,7 @@
+---
+  - name: Provision 2 Ubuntu and 1 Amazon Linux Instances on AWS
+    become: true
+    hosts: localhost
+    connection: local
+    roles:
+      - ec2_creation
